@@ -15,4 +15,4 @@ def home(request):
         "picked_hotel_list":picked_hotel_list,
         "top_ten_room_list":top_ten_room_list
     }
-    return render(request, 'base.html',context)
+    return render(request, 'home.html',context)

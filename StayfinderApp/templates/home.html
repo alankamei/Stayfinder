@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="carouselExample" class="carousel slide mb-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for ad in ads_list %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ ad.ads_image.url }}" class="d-block w-100" alt="Advertisement" />
+        </div>
+      {% endfor %}
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+
+  <div class="row">
+    <h2 class="text-center">Todays Picked</h2>
+    {% for picked in picked_hotel_list %}
+      <div class="col-sm-6 col-md-3 col-lg-3 mb-3 mb-sm-0">
+        <div class="card">
+          <img src="{{ picked.hotel_banner.url }}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ picked.hotel_name }}</h5>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+  <div class="row">
+    <h2 class="text-center">Top Rooms</h2>
+    {% for room in top_ten_room_list %}
+      <div class="col-sm-6 col-md-3 col-lg-3 mb-3 mb-sm-0">
+        <div class="card">
+          <img src="{{ room.room_image.url }}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ room.hotel }} Room no: {{room.room_number}}</h5>
+            <p>{{room.description}}</p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% endblock %}
