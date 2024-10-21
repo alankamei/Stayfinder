@@ -19,7 +19,7 @@ env/
 # /media
 
 # Static files
-# /static
+/static
 
 # IDE files
 *.swp
