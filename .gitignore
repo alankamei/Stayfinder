@@ -12,14 +12,14 @@ env/
 *.log
 *.pot
 *.pyc
-*.sqlite3
-db.sqlite3
+# *.sqlite3
+# db.sqlite3
 
 # Media files
-/media
+# /media
 
 # Static files
-/static
+# /static
 
 # IDE files
 *.swp
