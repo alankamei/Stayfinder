@@ -16,3 +16,12 @@ def home(request):
         "top_ten_room_list":top_ten_room_list
     }
     return render(request, 'home.html',context)
+
+
+def hotels(request):
+    hotel_lists = Hotel.objects.all()
+    
+    context={
+        "hotel_lists":hotel_lists
+    }
+    return render(request, 'hotels.html', context)
