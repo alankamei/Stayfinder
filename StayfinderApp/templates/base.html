@@ -84,42 +84,48 @@
     .navbar {
       box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add shadow to navbar */
     }
+    a{
+      text-decoration: none;
+    }
 </style>
 
   <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-      <div class="container-fluid d-flex justify-content-between">
-        <!-- Logo Section -->
-        <a class="navbar-brand" href="#">Logo</a>
-    
-        <!-- Search Section -->
-        <div class="flex-grow-1 mx-3">
-          <form class="d-flex justify-content-center" role="search">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search hotels" style="max-width: 250px;">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+    <div>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid d-flex justify-content-between">
+          <!-- Logo Section -->
+          <a class="navbar-brand" href="#">Logo</a>
+      
+          <!-- Search Section -->
+          <div class="flex-grow-1 mx-3">
+            <form class="d-flex justify-content-center" role="search">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search hotels" style="max-width: 250px;">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+      
+          <!-- Register/Login Section -->
+          <div class="d-none d-lg-block">
+            <a class="btn btn-outline-primary me-2" href="/hotels">Hotels</a>
+            <a class="btn btn-outline-primary me-2" href="#">Login</a>
+            <a class="btn btn-outline-secondary" href="#">Register</a>
+          </div>
+      
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
         </div>
-    
-        <!-- Register/Login Section -->
-        <div class="d-none d-lg-block">
-          <a class="btn btn-outline-primary me-2" href="{% url 'hotels' %}">Hotels</a>
-          <a class="btn btn-outline-primary me-2" href="#">Login</a>
-          <a class="btn btn-outline-secondary" href="#">Register</a>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-lg-none">
+            <a class="btn btn-outline-primary me-2" href="/hotels">Hotels</a>
+            <a class="btn btn-outline-primary me-2" href="#">Login</a>
+            <a class="btn btn-outline-secondary" href="#">Register</a>
+          </div>
         </div>
-    
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="d-lg-none">
-          <a class="btn btn-outline-primary me-2" href="#">Login</a>
-          <a class="btn btn-outline-secondary" href="#">Register</a>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
     
     
     
@@ -129,51 +135,53 @@
 
    {% endblock %}
     {% load static %}
-    <footer class="bg-light text-center text-lg-start">
-      <div class="container p-4">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 mb-4">
-            <h5 class="text-uppercase">About Us</h5>
-            <p>
-              We are committed to providing the best hospitality experience. Our hotel offers a range of services to ensure your stay is enjoyable and memorable.
-            </p>
+      <div>
+        <footer class="bg-light text-center text-lg-start">
+          <div class="container p-4">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">About Us</h5>
+                <p>
+                  We are committed to providing the best hospitality experience. Our hotel offers a range of services to ensure your stay is enjoyable and memorable.
+                </p>
+              </div>
+        
+              <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Quick Links</h5>
+                <ul class="list-unstyled">
+                  <li><a href="#!" class="text-dark">Home</a></li>
+                  <li><a href="#!" class="text-dark">Rooms</a></li>
+                  <li><a href="#!" class="text-dark">Amenities</a></li>
+                  <li><a href="#!" class="text-dark">Contact</a></li>
+                </ul>
+              </div>
+        
+              <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Contact Us</h5>
+                <p>
+                  Email: Stayfinder@email.com<br>
+                  Phone: +123 456 7890<br>
+                  Address: Singjamei Smart Tutorial, Imphal, India
+                </p>
+              </div>
+        
+              <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="text-uppercase">Follow Us</h5>
+                <a href="https://instagram.com" target="_blank">
+                  <img src="{% static '/images/ig.webp' %}" alt="Instagram" style="width: 30px; margin-right: 10px;">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                  <img src="{% static '/images/tw.webp' %}" alt="Twitter" style="width: 30px;">
+                </a>
+              </div>
+            </div>
           </div>
-    
-          <div class="col-lg-3 col-md-6 mb-4">
-            <h5 class="text-uppercase">Quick Links</h5>
-            <ul class="list-unstyled">
-              <li><a href="#!" class="text-dark">Home</a></li>
-              <li><a href="#!" class="text-dark">Rooms</a></li>
-              <li><a href="#!" class="text-dark">Amenities</a></li>
-              <li><a href="#!" class="text-dark">Contact</a></li>
-            </ul>
+        
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1);">
+            © Stayfinder 2024. All rights reserved.
           </div>
-    
-          <div class="col-lg-3 col-md-6 mb-4">
-            <h5 class="text-uppercase">Contact Us</h5>
-            <p>
-              Email: Stayfinder@email.com<br>
-              Phone: +123 456 7890<br>
-              Address: Singjamei Smart Tutorial, Imphal, India
-            </p>
-          </div>
-    
-          <div class="col-lg-3 col-md-6 mb-4">
-            <h5 class="text-uppercase">Follow Us</h5>
-            <a href="https://instagram.com" target="_blank">
-              <img src="{% static '/images/ig.webp' %}" alt="Instagram" style="width: 30px; margin-right: 10px;">
-            </a>
-            <a href="https://twitter.com" target="_blank">
-              <img src="{% static '/images/tw.webp' %}" alt="Twitter" style="width: 30px;">
-            </a>
-          </div>
-        </div>
+        </footer>
       </div>
-    
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1);">
-        © Stayfinder 2024. All rights reserved.
-      </div>
-    </footer>
     
     
     
