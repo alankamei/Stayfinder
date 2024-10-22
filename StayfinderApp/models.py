@@ -92,10 +92,4 @@ class Rating(models.Model):
 
 
 
-class SiteAsset(models.Model):
-    logo = models.ImageField(upload_to='logos/', blank=True, null=True, default='no_image/noimage.png')
-    instagram_icon = models.ImageField(upload_to='social_media/', blank=True, null=True, default='no_image/noimage.png')
-    twitter_icon = models.ImageField(upload_to='social_media/', blank=True, null=True, default='no_image/noimage.png')
 
-    def __str__(self):
-        return "Site Assets"
