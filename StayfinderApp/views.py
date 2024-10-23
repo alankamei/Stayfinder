@@ -39,3 +39,14 @@ def hotel_details(request):
     }
     
     return render(request, 'hotel_details.html', context)
+
+
+def room_details(request):
+    room_id= request.GET["room"]
+    room_details=Room.objects.filter(pk=room_id)[0]
+
+    context={
+        "room_details":room_details,
+     
+        }
+    return render(request, 'room_details.html',context)
