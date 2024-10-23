@@ -1,29 +1,139 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<h2 class="text-center mt-3 mb-4">{{ hotel_details.hotel_name }}</h2>
+<section title="Hotel Details" class="mb-4">
+  
+    <div class="row">
+      <!-- Left Column for Smaller Images -->
 
-
-{% block content %}
-
-<div class="row">
-
-    <h3 class="text-center">{{hotel_details.hotel_name}}</h3>
-
-    {% for room in room_list %}
-
-      <div class="col-sm-6 col-md-3 col-lg-3 mb-3 mb-2">
-      <a href="/hotel_details/?hotel=2">
-        <div class="card">
-          <img src="{{room.room_image.url }}" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Room No:{{ room.room_number }}</h5>
-            <label>Capacity: {{room.capacity}} person || </label>
-            <label>Price: {{room.price}}</label>
-            <p>{{ room.description}}</p>
-            <button class="btn btn-primary">Book Now</button>
-          </div>
-        </div>
-      </a>
+      <div class="col-md-5">
+        <img
+          src="{{ hotel_details.hotel_banner.url }}"
+          class="d-block w-100 img-fluid rounded large-image"
+          style="
+            height: 320px;
+            width: 100%;
+            object-fit: cover;
+            margin-left: 14px;
+          "
+          alt="Hotel Banner"
+        />
       </div>
 
-    {% endfor %}
-</div>
-{% endblock %}
+      <!-- Middle Column for Smaller Images -->
+      <div class="col-md-2">
+        <div class="row mb-2 d-flex flex-column justify-content-center">
+          <img
+            src="{{ hotel_details.interior_image.url }}"
+            class="img-fluid rounded small-image"
+            style="height: 102px; width: 150px; object-fit: cover"
+            alt="Interior Image 1"
+          />
+        </div>
+        <div class="row mb-2">
+          <img
+            src="{{ hotel_details.interior_image.url }}"
+            class="img-fluid rounded small-image"
+            style="height: 102px; width: 150px; object-fit: cover"
+            alt="Interior Image 2"
+          />
+        </div>
+        <div class="row mb-2">
+          <img
+            src="{{ hotel_details.interior_image.url }}"
+            class="img-fluid rounded small-image"
+            style="height: 102px; width: 150px; object-fit: cover"
+            alt="Interior Image 3"
+          />
+        </div>
+      </div>
+
+      <!-- Right Column for Hotel Details -->
+
+      <div
+        class="col-md-4 d-flex flex-column justify-content-center"
+        style="margin-left: 90px"
+      >
+        <div class="card mb-3">
+          <div class="card-body text-center">
+            <h5><i class="fas fa-home"></i> {{ hotel_details.hotel_name }}</h5>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body text-center">
+            <h5>
+              <i class="fa-solid fa-location-dot"></i> {{ hotel_details.location}}
+            </h5>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body text-center">
+            <h5>
+              <i class="fa-solid fa-phone"></i> {{ hotel_details.phone_number }}
+            </h5>
+          </div>
+        </div>
+        <div class="card mb-3">
+          <div class="card-body text-center">
+            <h5>
+              <i class="fa-solid fa-envelope"></i> {{ hotel_details.email }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+    <hr />
+    
+    <section title="Rooms" class="mt-4">
+      <h3 class="text-center">Available Rooms</h3>
+      <div class="row mt-3">
+        {% if room_list %} {% for room in room_list %}
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+          <a
+            href="/room_details/?room={{ room.id }}"
+            class="text-decoration-none"
+          >
+            <div class="card shadow-sm">
+              <img
+                src="{{ room.room_image.url }}"
+                class="card-img-top img-fluid rounded-top"
+                alt="Room Image"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  Room no: {{ room.room_number }}
+                </h5>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %} {% else %}
+        <div class="col-12">
+          <h5 class="text-danger text-center">Rooms not available!</h5>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    {% endblock %}
+
+    <style>
+      .image-container {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .large-image,
+      .small-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .row {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    </style>
+  
+
