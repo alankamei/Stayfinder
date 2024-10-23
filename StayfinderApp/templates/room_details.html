@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center mt-3 mb-5">Room No. {{ room_details.room_number }}</h2>
+<section title="Room details">
+    
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 d-flex">
+                <div id="roomCarousel" class="carousel slide w-100" data-bs-ride="carousel">
+                    <div class="carousel-inner h-100">
+                        <div class="carousel-item active">
+                            <img src="{{ room_details.room_image.url }}" class="d-block w-100" alt="Room Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ room_details.room_image1.url }}" class="d-block w-100" alt="Room Image 2">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+                <div class="room-details   w-100">
+                    <h5 class="text-left"><i class="fa-solid fa-people-group"></i> Capacity: {{ room_details.capacity }}</h5>
+                    <h5 class="text-left"><i class="fa-solid fa-money-check-dollar"></i> Price: Rs. {{ room_details.price }}/-</h5>
+                    <h5 class="text-left">Description: {{ room_details.description }}</h5>
+                    <button class="btn btn-outline-primary mt-3">Book Now</button>
+                </div>
+            </div>
+        </div>
+    
+</section>
+{% endblock %}
