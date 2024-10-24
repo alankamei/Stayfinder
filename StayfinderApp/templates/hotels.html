@@ -3,8 +3,17 @@
 {% block content %}
 
 <div class="row">
-    <h2 class="text-center">Available Hotels</h2>
+  {% if is_search %}
+    <h2 class="text-center" style="color:green;">Search Results</h2>
+    {% else %}
+    <h2 class="text-center mt-4">Available Hotels</h2>
+
+    {% endif %}
+
+    {% if hotel_lists %}
     {% for hotel in hotel_lists %}
+
+    
 
       <div class="col-sm-6 col-md-3 col-lg-3 mb-3 mb-2">
       <a href="/hotel_details/?hotel={{hotel.id}}">
@@ -14,10 +23,12 @@
             <h5 class="card-title">{{ hotel.hotel_name }}</h5>
           </div>
         </div>
-
       </a>
       </div>
 
     {% endfor %}
+    {% else %}
+    <h3 style="color: red;  text-align: center;" class="mt-4 mb-5" > Search not found! Please try another hotels </h3>
+      {% endif %}
   </div>
 {% endblock %}

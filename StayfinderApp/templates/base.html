@@ -102,16 +102,24 @@
   <body>
 <div class="container">
   
-  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top mb-4">
     <div class="container-fluid d-flex justify-content-between">
       <!-- Logo Section -->
       <a class="navbar-brand" href="/"><img src="{% static '/images/ig.webp' %}" alt="Twitter" style="width: 50px;"></a>
   
       <!-- Search Section -->
       <div class="flex-grow-1 mx-3">
-        <form class="d-flex justify-content-center" role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search hotels" style="max-width: 250px;">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+        <form action="/search/"  method="POST"  class="d-flex justify-content-center" role="search">
+          {% csrf_token %}
+
+          <input class="form-control" type="search" placeholder="search hotels" aria-label="Search hotels" name="search_query" style="max-width: 250px;" required>
+
+
+          <button class="btn btn-outline-success" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        
+        
         </form>
       </div>
   

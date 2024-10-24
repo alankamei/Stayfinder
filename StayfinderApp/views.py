@@ -8,8 +8,9 @@ def home(request):
     ads_list = AdsSlide.objects.all()
     picked_hotel_list = Hotel.objects.all().filter(picked_of_day=True)
     top_ten_room_list = Room.objects.all().filter(top_ten=True)
+    
 
-
+    
     context={
         "ads_list":ads_list,
         "picked_hotel_list":picked_hotel_list,
@@ -29,6 +30,7 @@ def hotels(request):
 
 def hotel_details(request):
     hotel_id=request.GET['hotel']
+    
     
     hotel_details=Hotel.objects.filter(pk=hotel_id)[0]
     room_list=Room.objects.filter(hotel=hotel_details)
@@ -50,3 +52,22 @@ def room_details(request):
      
         }
     return render(request, 'room_details.html',context)
+
+def search(request):
+    if request.method == 'POST':
+        query = request.POST['search_query']
+        
+        hotel_lists = Hotel.objects.filter(hotel_name__icontains=query)
+        
+        context = {
+            "hotel_lists": hotel_lists,
+            "is_search":True
+        }
+        
+        return render(request, 'hotels.html', context)
+    else:
+        context = {
+            "error":"Invalid Reequest"
+        }
+        return render(request, 'hotels.html', context)
+       
