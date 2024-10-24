@@ -50,6 +50,7 @@ class Room(models.Model):
     price = models.FloatField()
     is_empty = models.BooleanField(default=True)
     room_image = models.FileField(upload_to="room_images/", blank=True, null=True, default='no_image/noimage.png')
+    room_image1 = models.FileField(upload_to="room_images/", blank=True, null=True, default='no_image/noimage.png')
     description = models.CharField(max_length=255)
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='rooms')
     top_ten=models.BooleanField(default=False)

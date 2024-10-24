@@ -26,5 +26,6 @@ urlpatterns = static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + 
     path('hotels/',views.hotels, name="hotels"),
     path('hotel_details/', views.hotel_details),
     path('room_details/', views.room_details),
+    path('search/', views.search)
 ]
 

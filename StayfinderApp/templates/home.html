@@ -32,16 +32,18 @@
     </button>
   </div>
   
-  <div class="row">
+  <div class="row mb-4" >
     <h2 class="text-center">Todays Picked</h2>
     {% for picked in picked_hotel_list %}
     <div class="col-sm-6 col-md-3 col-lg-3 mb-3 mb-sm-0">
+      <a href="/hotel_details/?hotel={{picked.id}}">
       <div class="card">
         <img src="{{ picked.hotel_banner.url }}" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ picked.hotel_name }}</h5>
         </div>
       </div>
+    </a>
     </div>
     {% endfor %}
   </div>
@@ -50,6 +52,7 @@
     <h2 class="text-center">Top Rooms</h2>
     {% for room in top_ten_room_list %}
     <div class="col-sm-6 col-md-3 col-lg-3 mb-3 mb-sm-0">
+      <a href="/room_details/?room={{room.id}}">
       <div class="card">
         <img src="{{ room.room_image.url }}" class="card-img-top" alt="..." />
         <div class="card-body">
@@ -60,6 +63,7 @@
           <p></p>
         </div>
       </div>
+    </a>
     </div>
     {% endfor %}
   </div>
